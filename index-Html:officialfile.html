@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <style>
+
+        /* Stylesheet */
+        body {
+                font-family: Arial, sans-serif;
+               margin: 0;
+              padding: 0;
+            background-color: #f8f8f8;
+          color: #3;
+        }
+        header {
+            background-color: #0f2E3A;
+              color: white;
+                padding: 20px;
+                 text-align: left;
+        }
+        .container {
+                max-width: 1000px;
+              margin: 10px auto;
+            padding: 20px;
+            
+           
+                   }
+        h1, h2 {
+            margin-top: 0;
+        }
+        p {
+            line-height: 1.0;
+        }
+        footer {
+            background-color: #333;
+             color: white;
+              text-align: left;
+               padding: 10px;
+                position: fixed;
+                 bottom: 0;
+                  width: 100%;
+        }
+    </style> 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Icon with Login and Signup</title>
+    <!-- Include Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+             font-family: Arial, sans-serif;
+            background-color: #fff;
+           margin: 0;
+          padding: px;
+         position: relative;
+        }
+        .profile-container {
+           position: absolute;
+            top: 20px;
+             right: 20px;
+              cursor: pointer;
+        }
+        .profile-icon {
+             font-size: 40px;
+            color: #fff;
+        }
+        .dropdown-menu {
+
+          display: none;
+           padding: 100px;
+            position: absolute;
+             right: 0;
+              top: 45px;
+               background-color: #fff;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                 border-radius: 8px;
+                  overflow: hidden;
+                   z-index: 1;
+        }
+        .dropdown-menu a {
+               color: black;
+              padding: 12px 16px;
+            text-decoration: none;
+          display: block;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f1f11;
+        }
+        .form-container {
+          display: none;
+           margin: 200px auto;
+            padding: 15px;
+             background-color: #fff;
+              box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+               border-radius: 8px;
+                max-width: 400px;
+        }
+        .form-container input {
+              width: 97%;
+             padding: 5px;
+            margin: 10px 0;
+           border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        .form-container button {
+           width: 100%;
+            padding: 10px;
+             background-color: #007bff;
+              color: white;
+               border: none;
+                border-radius: 4px;
+                 cursor: pointer;
+        }
+        .form-container button:hover {
+          background-color: #0056b3;
+        }
+        .error-message {
+          color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+ <!-- Profile Icon Integration -->
+    <div class="profile-container" onclick="toggleDropdown()">
+      <i class="fas fa-user-circle profile-icon"></i>
+        <div id="dropdownMenu" class="dropdown-menu">
+         <a href="#" onclick="showSignUpForm()">Sign Up</a>
+          <a href="#" onclick="showLoginForm()">Login</a>
+          </div>
+            </div>
+
+<!-- Sign Up Form -->
+            <div id="signUpForm" class="form-container">
+           <h2>Sign Up</h2>
+          <input type="text" id="signUpFirstName" placeholder="First Name" required>
+        <input type="text" id="signUpLastName" placeholder="Last Name" required>
+       <input type="email" id="signUpEmail" placeholder="Email" required>
+      <input type="password" id="signUpPassword" placeholder="Password" required>
+    <button onclick="handleSignUp()">Sign Up</button>
+  <p> Already have an account?  <a href="#" onclick="showLoginForm()">Login</a> here
+By signing up, you agree to our
+<a href="#" onclick="showLoginForm()">Terms and Conditions.</a></p>
+
+
+</div>
+
+<!-- Login Form -->
+    <div id="loginForm" class="form-container">
+     <h2>Login</h2>
+       <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+          <div id="errorMessage" class="error-message">Incorrect password. Please try again.</div>
+             <button onclick="handleLogin()">Login</button>
+
+<p> Don't have an account? <a href="#" onclick="showSignUpForm()">Sign Up</a> here
+   
+ </div>
+
+<!-- Account Information Page -->
+    <div id="accountInfo" class="form-container">
+            <h2>Account Information</h2>
+           <p><strong>First Name:</strong> <span id="accountFirstName"></span></p>
+          <p><strong>Last Name:</strong> <span id="accountLastName"></span></p>
+        <p><strong>Email:</strong> <span id="accountEmail"></span></p>
+    </div>
+
+<script>
+        let user = {};
+         function toggleDropdown() {
+           const dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.style.display = dropdownMenu.style.display ===
+             "block" ? "none" :  "block";
+                                         }
+
+        function showSignUpForm() {
+         document.getElementById("signUpForm").style.display = "block";
+           document.getElementById("loginForm").style.display = "none";
+            document.getElementById("accountInfo").style.display = "none";
+             toggleDropdown();
+        }
+
+        function showLoginForm() {
+              document.getElementById("loginForm").style.display = "block";
+            document.getElementById("signUpForm").style.display = "none";
+           document.getElementById("accountInfo").style.display = "none";
+         toggleDropdown();
+        }
+
+        function handleSignUp() {
+          const firstName = document.getElementById("signUpFirstName").value;
+            const lastName = document.getElementById("signUpLastName").value;
+              const email = document.getElementById("signUpEmail").value;
+               const password = document.getElementById("signUpPassword").value;
+              user = { firstName, lastName, email, password };
+            showLoginForm();
+                             }
+
+        function handleLogin() {
+         const email = document.getElementById("loginEmail").value;
+           const password = document.getElementById("loginPassword").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            if(email === user.email && password === user.password) {
+              document.getElementById("accountFirstName").innerText = user.firstName;
+               document.getElementById("accountLastName").innerText = user.lastName;
+                document.getElementById("accountEmail").innerText = user.email;
+
+                  document.getElementById("loginForm").style.display = "none";
+                 document.getElementById("accountInfo").style.display = "block";
+                errorMessage.style.display = "none";
+               } else {
+              errorMessage.style.display = "block";
+           }
+        }
+
+        window.onclick = function(event) {
+        if (!event.target.matches('.profile-icon') && 
+           !event.target.matches('.dropdown-menu    a')) {
+             const dropdownMenu = document.getElementById("dropdownMenu");
+              if (dropdownMenu.style.display === "block") {
+               dropdownMenu.style.display = "none";
+                }
+            }
+        }
+</script>
+
+
+
+</head>
+<body> 
+<header>
+
+
+<h3>  
+  <style>
+  .no-underline {
+    text-decoration: none;
+      color: white;}
+       </style>
+        <title>Remove Underline from Link</title>
+         <a href="https://wonderems.com" class="no-underline">WONDER EAGLES M7 </a>
+</h3> 
+
+ 
+
+</style>
+   <div class="button-container">
+ <button id="navigateButton">Wonderems</button>
+<style>
+       .button-container {
+       display: flex;
+       justify-content: flex-end;
+       margin: 0px;
+             }
+       #navigateButton{
+       background-color: #007B;
+        border: 1;
+         color: white;
+          padding: 1px 8px;
+           text-align: center;
+            text-decoration: none;
+             display: inline-block;
+             font-size: 20px;
+             margin: 4px 2px;
+            cursor: pointer;
+           border-radius: px;
+                             }
+
+</style>
+<script>
+    document.getElementById("navigateButton").addEventListener("click",function() {
+      window.location.href = "https://wonderems.com";
+       });
+</script>
+
+
+       </header>
+     <div class="container"> 
+   <style type="text/css">   
+</style>
+
+
+<H1>Music, Tv, And Podcasts
+Take Center Stage.
+
+
+<h4>The Apple music app is the ultimate music streaming experience on mac Here your find another useful tools inside the document.
+
+
+<style> 
+ </style>
+  <a href="https://itunes.com">iTunes</a>
+
+
+<h3>Wonder Eagles M7</h2>
+        
+<p>iTunes forever changed the way people experienced music, movies, TV shows, and podcasts. It all changes again with three all-new, dedicated apps — Apple Music, Apple TV, and Apple Podcasts — each designed from the ground up to be the best way to enjoy entertainment on your Mac. And rest assured; everything you had in your iTunes library is still accessible in each app. iCloud seamlessly syncs everything across your devices — or you can back up, restore, and sync by connecting the device directly to your Mac.</p>
+
+        
+<h2>image </h2>
+        
+<p>The Apple Music app is the ultimate music streaming experience on Mac.1 Explore a library with millions of songs, discover new artists and tracks, find the perfect playlist, download and listen offline, or enjoy all the music you’ve collected over the years. And find it all in your music library on all your devices.</p>
+
+<h2>image </h2>
+
+<p> The Apple TV app for Mac is the new home for all your favorite movies, shows, premium channels, and Apple TV+. Watch everything directly in the app or enjoy it offline, and discover the best of what’s on in the Watch Now tab. You can even pick up where you left off on any screen, across all your devices. And for the first time, 4K2 and Dolby Atmos3-supported movies are available on Mac
+                 <p>• Artist management</p>
+                • Music production</p>
+              • Promotion and marketing</p>
+            • Event organization</p>
+
+<h2>image </h2>
+         
+More than 700,000 of the best entertainment, comedy, news, and sports shows are now available on your Mac with Apple Podcasts. Search for podcasts by title, topic, guest, host, content, and more. Subscribe and be notified as soon as new episodes become available. And in the Listen Now tab, you can easily pick up where you left off across all your devices.</p>
+       
+<h2>image </h2>
+        
+<p>Wonder Eagles M7 is dedicated to promoting and supporting emerging artists from diverse musical backgrounds. We strive to provide a platform for creativity and expression.</p>
+
+<h2>image </h2>
+        
+<p>Our mission is to discover talented musicians and help them reach their full potential. We aim to foster a community of artists and music lovers who share a passion for innovation and excellence.</p>
+
+       
+<h2>image </h2>
+        
+           
+           <p>• Artist management</p>
+          <p>• Music production</p>
+         <p>• Promotion and marketing</p>
+        <p>• Event organization</p>
+
+<h2>Contact Us</h2>
+        wonder eagles M7 Support can help answer your questions, feel free to contact us! </
+        <p>email:wondereaglesm7@gmail.com</p> 
+
+</div>
+<footer>
+         <style>
+         .no-underline {
+          text-decoration: none;
+            color: white;        }
+             </style>
+              <title>Remove Underline from Link</title>
+                <a href="https://wonderems.com" class="no-underline">
+                  &copy; 2024 Wonder Eagles M7 Inc. All rights reserved.</a>
+
+</footer>
+
+
+
+
