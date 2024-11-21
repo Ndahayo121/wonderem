@@ -1,261 +1,241 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <style>
-        /* Stylesheet */
+    <title>Wonderem</title>
+    <style>
+        /* Global Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #f9f9f9;
             color: #333;
         }
+
+        /* Header Styles */
         header {
             background-color: #0f2E3A;
             color: white;
-            padding: 20px;
-            text-align: left;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .container {
-            max-width: 1000px;
-            margin: 10px auto;
-            padding: 20px;
-            
-           
-                   }
-        h1, h2 {
-            margin-top: 0;
-        }
-        p {
-            line-height: 1.5;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: auto;
-            bottom: 0;
-            width: %;
-        }
-    </style> 
-</head>
-<body> 
 
-   
- <header>
- 
- <h3>  
-  <style>
-  .no-underline {
-    text-decoration: none;
-      color: white;}
-       </style>
-              <a href="https://wonderems.com" class="no-underline"> WONDEREM </a>
-</h3> 
-
- <style>
-        body { 
-            font-family: Arial, sans-serif;
+        header h1 {
             margin: 0;
-            padding: 0;
+            font-size: px;
         }
 
-        .hamburger, .close {  
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
+        /* Navigation Menu */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: red;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
             cursor: pointer;
-            z-index: 1001;
         }
 
         .hamburger div {
-            background-color: white;
-            height: 4px;
             width: 30px;
-            margin: 6px 0;
+            height: 3px;
+            background-color: white;
         }
 
-        .close { 
-
-
-            display: yes;
-            font-size: 24px;
-            color: white;
-            text-align: center;
-            line-height: 30px;
-        }
-
-        .menu { 
+        /* Mobile Menu */
+        .menu {
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 0;
+            width: 250px;
             height: 100%;
-            background-color:black;
-            z-index: 1000;
-            justify-content: center;
+            background-color: #0f2E3A;
+            flex-direction: column;
             align-items: center;
-            text-align: center;
+            padding: 20px;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .menu .close {
+            align-self: flex-end;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
         }
 
         .menu a {
             color: white;
-            font-size: 24px;
             text-decoration: none;
-            display: block;
-            margin: 20px 0;
+            font-size: 18px;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
         }
-    </style>
-</head>
-<body>
-   
 
- 
-<div class="hamburger" id="hamburger">
-   
-        <div></div>
-        <div></div>
-        <div></div>
- 
-   
-    </div>
- <div class="menu" id="menu">
-        <div class="close" id="close">X</div>
+        .menu a:hover {
+            background-color: red;
+        }
 
+        /* Centered Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: calc(100vh - 100px); /* Adjust height minus header/footer */
+            padding: 0px;
+            background-color: #f9f9f9;
+        }
 
+        h2, h3 {
+            color: #0f2E3A;
+        }
 
-  <header>   
+        p {
+            line-height: ;
+            margin-bottom: px;
+        }
 
- <a href="https://www.wonderems.com" id="navigateLink">wonderem.com</a>
- 
- <h3>Still in production!</h3>
-
-       
-
-
-</div>
-<script>
-
-       document.getElementById('hamburger').addEventListener('click', function() {
-            document.getElementById('menu').style.display = 'flex';
-            this.style.display = 'none';
-        });
-
-        document.getElementById('close').addEventListener('click', function() {
-            document.getElementById('menu').style.display = 'none';
-            document.getElementById('hamburger').style.display = 'block';
-        });
-
-        // Hide the hamburger icon when navigating to another page
-        document.getElementById('navigateLink').addEventListener('click', function() {
-            document.getElementById('hamburger').style.display = 'none';
-        });
-   
- </script>
-
-
-     </header>
-<div class="container"> 
-
-<style type="text/css">   
- </style>
-
-
-<H2>Wonderem Music,And Podcasts
-Take Center Stage.</h2>
-
-
-<h4>Wonderem music is the ultimate music streaming experience on mac Here your find another useful tools inside the document.
-
-
-<style>
-        /* Button Styling */
+        /* Button */
         .custom-button {
             display: inline-block;
-            background-color: #004080; /* Dark blue background */
-            color: white;             /* White text */
-            font-size: 15px;          /* Text size */
-            padding: 0px 15px;       /* Spacing inside the button */
-            border: none;             /* Remove default border */
-            border-radius: 10px;       /* Rounded corners */
-            text-align: center;       /* Center text */
-            text-decoration: none;    /* Remove underline */
-            cursor: pointer;          /* Pointer cursor on hover */
-            transition: background-color 0.3s ease; /* Smooth hover effect */
+            background-color: #004080;
+            color: white;
+            font-size: 15px;
+            padding: 1px 15px;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
-        /* Hover Effect */
         .custom-button:hover {
-            background-color: #00264d; /* Slightly darker blue */
+            background-color: #00264d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 10px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Button -->
-    <a href="https://www.wonderems.com" class="custom-button">Click </a>
-
-
-
-
- <h2>Wonderem</h2>
+     <header>
   
-<h3>I</h3>
+        <h1>WONDEREM</h1>
+        <nav class="nav-links">
+            <a href="HOME">HOME</a>
+            <a href="#About.html">ABOUT</a>
+            <a href="#ARTIST">ARTIST</a>
+            <a href="#SERVICES">SERVICE</a>
+            <a href="#CONTACT">CONTACT</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="menu" id="menu">
+        <div class="close" id="close">×</div>
+       <a href="#HOME">HOME</a>
+            <a href="#ABOUT">ABOUT</a>
+            <a href="#ARTIST">ARTIST</a>
+            <a href="#SERVICES">SERVICE</a>
+            <a href="#CONTACT">CONTACT</a>
+    </div>
+
+    <div class="container">
+
+<h2>Welcome to Wonderem</h2>
+        
+Wonderem is dedicated to promoting and supporting </p>
+
+emerging artists from diverse musical backgrounds</p>
+
+We strive to provide a platform for creativity and expression</p>
+
+With Wonderem, you can enjoy music </p>
+           
+entertainment that seamlessly </p>
+
+syncs across all your devices</p>
+
       
-<p>Wonderem forever changed the way people listen to music, and instlunmental. It all changes again with three all-new, dedicated apps — Wonderem music, and Wonderem Podcasts — each designed from the ground up to be the best way to enjoy entertainment on the go. And rest assured; everything you had in your library is still accessible in seamlessly syncs everything across your devices — or you can back up, restore, and sync by connecting the device directly to your wonderem site.</p>
+<h2>Our Services</h2>
 
-        
-<h3>II</h3>
-        
-<p>The Wonderem Music app is the ultimate music streaming experience on Mac.1 Explore a library with millions of songs, discover new artists and tracks, find the perfect playlist, download and listen offline, or enjoy all the music you’ve collected over the years. And find it all in your music library on all your devices.</p>
+<h4>Music Production </h3>
+<h4>Artist Management</h3>
+<h4>Promoting and Marketing</h3>
 
-<h3>III</h3>
-
-<p> The Wonderem  is the new home for all your favorite movies, shows, premium channels, and Wonderem. Watch everything directly in the app or enjoy it offline, and discover the best of what’s on in the Watch Now tab. You can even pick up where you left off on any screen, across all your devices. And for the first time, 4K2 and Dolby Atmos3-supported movies are available on Mac
-        <p>• Artist management</p>
-        • Music production</p>
-        • Promotion and marketing</p>
-        • Event organization</p>
-
-<h3>IV</h3>
-         
-More than 700,000 of the best entertainment, comedy, news, and sports shows are now available on your Mac with Apple Podcasts. Search for podcasts by title, topic, guest, host, content, and more. Subscribe and be notified as soon as new episodes become available. And in the Listen Now tab, you can easily pick up where you left off across all your devices.</p>
-       
-<h3>V</h3>
-        
-<p> Wonderem is dedicated to promoting and supporting emerging artists from diverse musical backgrounds. We strive to provide a platform for creativity and expression.</p>
-
-<h3>VI</h3>
-        
-<p>Our mission is to discover talented musicians and help them reach their full potential. We aim to foster a community of artists and music lovers who share a passion for innovation and excellence.</p>
-
-       
-<p>• Artist management</p>
-         <p>• Music production</p>
-          <p>• Promotion and marketing</p>
-           <p>• Event organization</p>
-
-
-<h4>Contact Us</h4>
       
-Support can help answer your questions, feel free to contact us! </p>
-email:wonderem@gmail.com</p> 
-
-
-
-</div>
+<a href="https://wonderems.com" class="custom-button">Learn More</a>
+</p>
+ </div>
+    
 
 <footer>
+        <p>Copyright &copy; 2024 Wonderem. All rights reserved.</p>
+          </footer>
 
-Copyright &copy; 2024 Wonderem. All rights reserved.
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        const closeBtn = document.getElementById('close');
 
-</footer>
+        // Show the menu
+        hamburger.addEventListener('click', () => {
+            menu.style.display = 'flex';
+        });
 
-
-
+        // Close the menu
+        closeBtn.addEventListener('click', () => {
+            menu.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
